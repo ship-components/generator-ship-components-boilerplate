@@ -6,8 +6,7 @@ function generator() {
   const yosay = require('yosay');
   const path = require('path');
   const mkdirp = require('mkdirp');
-  const _ = require('lodash');
-  const fs = require('fs-extra');
+  const fs = require('fs.extra');
 
   module.exports = yeoman.extend({
     prompting: function() {
