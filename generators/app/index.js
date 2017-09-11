@@ -8,6 +8,7 @@ function generator() {
   const mkdirp = require('mkdirp');
   const ncp = require('ncp').ncp;
   var fs = require('fs.extra');
+  var copy = require('recursive-copy');
 
   module.exports = yeoman.extend({
     prompting: function() {
@@ -41,22 +42,6 @@ function generator() {
         mkdirp(this.props.projectName);
         this.destinationRoot(this.destinationPath(this.props.projectName));
       }
-
-      // const readmeTpl = _.template(this.fs.read(this.templatePath('README.md')));
-
-      // this.composeWith(this.sourceRoot(), {
-      //   boilerplate: false,
-      //   name: this.props.name,
-      //   projectRoot: 'generators',
-      //   skipInstall: this.options.skipInstall,
-      //   readme: readmeTpl({
-      //     generatorName: this.props.name
-      //   })
-      // });
-
-      // this.composeWith(require.resolve('../subgenerator'), {
-      //   arguments: ['app']
-      // });
     },
     writing: function() {
       //copy all files
@@ -70,13 +55,20 @@ function generator() {
 
       //   console.log('Copied all resources to %s folder', this.props.projectName);
       // });
-      fs.copyRecursive(source, destination, function(err) {
-        if (err) {
-          throw err;
-        }
+      // fs.copyRecursive(source, destination, function(err) {
+      //   if (err) {
+      //     throw err;
+      //   }
 
-        console.log("Copied './foo' to './bar'");
-      });
+      //   console.log("Copied './foo' to './bar'");
+      // });
+      copy(source, destination)
+        .then(function(results) {
+          console.info('Copied ' + results.length + ' files');
+        })
+        .catch(function(error) {
+          console.error('Copy failed: ' + error);
+        });
 
       // package
       var pkg = this.fs.readJSON(this.templatePath('package.json'), {});
