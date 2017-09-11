@@ -7,6 +7,7 @@ function generator() {
   const path = require('path');
   const mkdirp = require('mkdirp');
   const ncp = require('ncp').ncp;
+  var fs = require('fs.extra');
 
   module.exports = yeoman.extend({
     prompting: function() {
@@ -62,12 +63,19 @@ function generator() {
       let source = this.sourceRoot() + '/resource';
       let destination = this.destinationRoot();
 
-      ncp(source, destination, (err) => {
+      // ncp(source, destination, (err) => {
+      //   if (err) {
+      //     return console.error(err);
+      //   }
+
+      //   console.log('Copied all resources to %s folder', this.props.projectName);
+      // });
+      fs.copyRecursive(source, destination, function(err) {
         if (err) {
-          return console.error(err);
+          throw err;
         }
 
-        console.log('Copied all resources to %s folder', this.props.projectName);
+        console.log("Copied './foo' to './bar'");
       });
 
       // package
