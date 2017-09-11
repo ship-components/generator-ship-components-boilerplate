@@ -1,0 +1,57 @@
+{
+  "name": "generator-ship-components-boilerplate",
+  "version": "0.1.0",
+  "description": "simple react boilerplate for the SHIP team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ship-components/generator-ship-components-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ship-components/generator-ship-components-boilerplate#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ship-components/generator-ship-components-boilerplate.git"
+  },
+  "scripts": {
+    "prepare": "gulp prepublish",
+    "test": "gulp",
+    "travis": "npm i trevor -g && trevor"
+  },
+  "author": {
+    "name": "Sepand Assadi",
+    "email": "sepand.assadi@sony.com"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "react boilerplate webapck redux router",
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "gulp-babel": "^7.0.0",
+    "yeoman-generator": "^1.1.1",
+    "yosay": "^2.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.0",
+    "escodegen": "^1.9.0",
+    "eslint": "^4.6.1",
+    "eslint-config-ship-components-base": "^1.1.0",
+    "gulp": "^3.9.1",
+    "gulp-coveralls": "^0.1.4",
+    "gulp-eslint": "^4.0.0",
+    "gulp-exclude-gitignore": "^1.2.0",
+    "gulp-istanbul": "^1.1.2",
+    "gulp-line-ending-corrector": "^1.0.1",
+    "gulp-mocha": "^4.3.1",
+    "gulp-nsp": "^2.4.2",
+    "gulp-plumber": "^1.1.0",
+    "yeoman-assert": "^3.0.0",
+    "yeoman-test": "^1.7.0"
+  },
+  "private": false
+}
