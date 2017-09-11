@@ -8,8 +8,6 @@ function generator() {
   const mkdirp = require('mkdirp');
   const ncp = require('ncp').ncp;
 
-  ncp.limit = 16;
-
   module.exports = yeoman.extend({
     prompting: function() {
       this.log(yosay('Welcome to the amazing ' + chalk.red('generator-ship-components-boilerplate') + ' generator!'));
@@ -61,7 +59,7 @@ function generator() {
     },
     writing: function() {
       //copy all files
-      let source = this.sourceRoot() + '/resource/';
+      let source = this.sourceRoot() + '/resource';
       let destination = this.destinationRoot();
 
       ncp(source, destination, (err) => {
