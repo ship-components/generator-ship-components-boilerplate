@@ -6,9 +6,9 @@ function generator() {
   var yosay = require('yosay');
   var path = require('path');
 
-  module.exports = yeoman.Base.extend({
+  module.exports = yeoman.extend({
     prompting: function() {
-      this.log(yosay('Welcome to the amazin ' + chalk.red('generator-ship-components-boilerplate') + ' generator!'));
+      this.log(yosay('Welcome to the amazing ' + chalk.red('generator-ship-components-boilerplate') + ' generator!'));
 
       // Asking users for inputs
       var prompts =[{
