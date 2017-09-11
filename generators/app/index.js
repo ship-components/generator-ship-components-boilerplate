@@ -1,10 +1,12 @@
 function generator() {
   'use strict';
 
-  var yeoman = require('yeoman-generator');
-  var chalk = require('chalk');
-  var yosay = require('yosay');
-  var path = require('path');
+  const yeoman = require('yeoman-generator');
+  const chalk = require('chalk');
+  const yosay = require('yosay');
+  const path = require('path');
+  const mkdirp = require('mkdirp');
+  const _ = require('lodash');
 
   module.exports = yeoman.extend({
     prompting: function() {
@@ -34,15 +36,30 @@ function generator() {
     },
     defaults: function() {
       if(path.basename(this.destinationPath()) !== this.props.projectName) {
-        this.log('Your generator must be inside a folder named ' + this.props.projectName + '\n' +
-    'I\'ll automatically create this folder.');
-        this.mkdirp(this.props.projectName);
+        this.log('Your generator must be inside a folder named ' + this.props.projectName + '\n' + 'I\'ll automatically create this folder.');
+        mkdirp(this.props.projectName);
         this.destinationRoot(this.destinationPath(this.props.projectName));
       }
+
+      // const readmeTpl = _.template(this.fs.read(this.templatePath('README.md')));
+
+      // this.composeWith(this.sourceRoot(), {
+      //   boilerplate: false,
+      //   name: this.props.name,
+      //   projectRoot: 'generators',
+      //   skipInstall: this.options.skipInstall,
+      //   readme: readmeTpl({
+      //     generatorName: this.props.name
+      //   })
+      // });
+
+      // this.composeWith(require.resolve('../subgenerator'), {
+      //   arguments: ['app']
+      // });
     },
     writing: function() {
     //copy all files
-      this.directory(this.sourceRoot() + '/resource/', this.destinationRoot());
+      // this.directory(this.sourceRoot() + '/resource/', this.destinationRoot());
 
       // package
       var pkg = this.fs.readJSON(this.templatePath('package.json'), {});
@@ -54,14 +71,14 @@ function generator() {
       this.fs.writeJSON(this.destinationPath('package.json'), pkg);
 
       //copy templates
-      this.copy('babelrc_tmpl', '.babelrc');
-      this.copy('coveralls_tmpl', '.coveralls.yml');
-      this.copy('eslintrc_tmpl', '.eslintrc');
-      this.copy('gitignore_tmpl', '.gitignore');
-      this.copy('gruntfile_tmpl', 'Gruntfile.js');
-      this.copy('npmignore_tmpl', '.npmignore');
-      this.copy('travis_tmpl', '.travis.yml');
-    }.bind(this),
+      this.fs.copy(this.sourceRoot() + '/' + 'babelrc_tmpl', '.babelrc');
+      this.fs.copy(this.sourceRoot() + '/' + 'coveralls_tmpl', '.coveralls.yml');
+      this.fs.copy(this.sourceRoot() + '/' + 'eslintrc_tmpl', '.eslintrc');
+      this.fs.copy(this.sourceRoot() + '/' + 'gitignore_tmpl', '.gitignore');
+      this.fs.copy(this.sourceRoot() + '/' + 'gruntfile_tmpl', 'Gruntfile.js');
+      this.fs.copy(this.sourceRoot() + '/' + 'npmignore_tmpl', '.npmignore');
+      this.fs.copy(this.sourceRoot() + '/' + 'travis_tmpl', '.travis.yml');
+    },
     install: function() {
       process.exit();
     }
