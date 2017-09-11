@@ -16,16 +16,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ship-components/ship-components-tag-input.git"
+    "url": "git+https://github.com/ship-components/generator-ship-components-boilerplate.git"
   },
   "engines": {
     "node": ">=4.0 <7.0"
   },
   "keywords": [
     "react",
-    "tag",
-    "typeahead",
-    "select",
     "es2015",
     "javascript",
     "javascript-library",
@@ -33,10 +30,7 @@
     "webpack",
     "jest"
   ],
-  "author": "Chris Orescan <chris.orescan@sony.com>",
-  "contributors": [
-    "Sepand Assadi <sepand.assadi@sony.com>"
-  ],
+  "author": "Sepand Assadi <sepand.assadi@sony.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ship-components/ship-components-tag-input/issues"

@@ -7,6 +7,7 @@ function generator() {
   const path = require('path');
   const mkdirp = require('mkdirp');
   const _ = require('lodash');
+  const fs = require('fs-extra');
 
   module.exports = yeoman.extend({
     prompting: function() {
@@ -58,14 +59,24 @@ function generator() {
       // });
     },
     writing: function() {
-    //copy all files
-      // this.directory(this.sourceRoot() + '/resource/', this.destinationRoot());
+      //copy all files
+      fs.copyRecursive(this.sourceRoot() + '/resource/', this.destinationRoot(), (err) => {
+        if (err) {
+          throw err;
+        }
+
+        console.log('Copied all resources to %s folder', this.props.projectName);
+      });
 
       // package
       var pkg = this.fs.readJSON(this.templatePath('package.json'), {});
       pkg.name = this.props.projectName;
       pkg.description = this.props.projectDesc;
       pkg.author = this.props.author;
+
+      pkg.repository.url = 'git+https://github.com/ship-components/' + this.props.projectName + '.git';
+      pkg.bugs.url = 'https://github.com/ship-components/' + this.props.projectName + '/issues';
+      pkg.homepage = 'git+https://github.com/ship-components/' + this.props.projectName + '#readme';
 
       //package.json
       this.fs.writeJSON(this.destinationPath('package.json'), pkg);
