@@ -14,7 +14,7 @@ function generator() {
       var prompts =[{
         type: 'input',
         name: 'projectName',
-        message: 'Pleace input your project name(ship-components-):',
+        message: 'Please enter your project name(ship-components-):',
         default: 'ship-components-'
       },
       {
@@ -36,7 +36,7 @@ function generator() {
       if(path.basename(this.destinationPath()) !== this.props.projectName) {
         this.log('Your generator must be inside a folder named ' + this.props.projectName + '\n' +
     'I\'ll automatically create this folder.');
-        this.mkdir(this.props.projectName);
+        this.mkdirp(this.props.projectName);
         this.destinationRoot(this.destinationPath(this.props.projectName));
       }
     },
@@ -61,7 +61,7 @@ function generator() {
       this.copy('gruntfile_tmpl', 'Gruntfile.js');
       this.copy('npmignore_tmpl', '.npmignore');
       this.copy('travis_tmpl', '.travis.yml');
-    },
+    }.bind(this),
     install: function() {
       process.exit();
     }
