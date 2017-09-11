@@ -40,20 +40,16 @@ function generator() {
         mkdirp(this.props.projectName);
         this.destinationRoot(this.destinationPath(this.props.projectName));
       }
-    },
-    writing: function() {
+
       //copy all files
       let source = this.sourceRoot() + '/resource';
       let destination = this.destinationRoot();
 
-      // Sync:
-      try {
-        fs.copySync(source, destination)
-        console.log('success!');
-      } catch (err) {
-        console.error(err);
-      }
-
+      fs.copy(source, destination)
+        .then(() => console.log('success!'))
+        .catch(err => console.error(err));
+    },
+    writing: function() {
       // package
       var pkg = this.fs.readJSON(this.templatePath('package.json'), {});
       pkg.name = this.props.projectName;
