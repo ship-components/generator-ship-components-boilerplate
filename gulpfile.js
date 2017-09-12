@@ -3,7 +3,7 @@ const path = require('path');
 const gulp = require('gulp');
 const babel = require('gulp-babel');
 const eslint = require('gulp-eslint');
-const excludeGitignore = require('gulp-exclude-gitignore');
+// const excludeGitignore = require('gulp-exclude-gitignore');
 const mocha = require('gulp-mocha');
 const istanbul = require('gulp-istanbul');
 const nsp = require('gulp-nsp');
@@ -12,7 +12,6 @@ const coveralls = require('gulp-coveralls');
 
 gulp.task('eslint', function() {
   return gulp.src('generators/**/*.js')
-    .pipe(excludeGitignore())
     .pipe(babel({
       presets: ['env']
     }))
@@ -32,7 +31,6 @@ gulp.task('pre-test', function() {
     .pipe(babel({
       presets: ['env']
     }))
-    .pipe(excludeGitignore())
     .pipe(istanbul({
       includeUntested: true
     }))
@@ -58,14 +56,5 @@ gulp.task('watch', function() {
   gulp.watch(['generators/**/*.js', 'test/**'], ['test']);
 });
 
-gulp.task('coveralls', ['test'], function() {
-  if (!process.env.CI) {
-    return;
-  }
-
-  return gulp.src(path.join(__dirname, 'coverage/lcov.info'))
-    .pipe(coveralls());
-});
-
 gulp.task('prepublish', ['nsp']);
-gulp.task('default', ['eslint', 'test', 'coveralls']);
+gulp.task('default', ['eslint', 'test']);
