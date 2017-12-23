@@ -7,7 +7,7 @@
  *
  */
 module.exports = function(grunt) {
-  grunt.registerTask('coverage', [
+  grunt.registerTask('coveralls', [
     'coveralls'
   ]);
 };

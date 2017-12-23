@@ -106,7 +106,7 @@ function generator() {
       this.fs.copy(source + '/tasks/config/webpack.js', destination + '/tasks/config/webpack.js');
       // register folder
       this.fs.copy(source + '/tasks/register/build.js', destination + '/tasks/register/build.js');
-      this.fs.copy(source + '/tasks/register/coveralls.js', destination + '/tasks/register/coveralls.js');
+      this.fs.copy(source + '/tasks/register/coverage.js', destination + '/tasks/register/coverage.js');
       this.fs.copy(source + '/tasks/register/default.js', destination + '/tasks/register/default.js');
       this.fs.copy(source + '/tasks/register/lint.js', destination + '/tasks/register/lint.js');
       this.fs.copy(source + '/tasks/register/server.js', destination + '/tasks/register/server.js');
