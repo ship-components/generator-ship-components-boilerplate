@@ -1,17 +1,17 @@
 const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const postCssPlugins = require('../../libs/postCssPlugins');
+const postCssPlugins = require('./libs/postCssPlugins');
 
 module.exports = {
   // Where to start
   entry: {
-    TagInput: path.resolve(__dirname, '../../src/index.js')
+    TagInput: path.resolve(__dirname, './src/index.js')
   },
 
   // Where to output
   output: {
-    path: path.resolve(__dirname, '../../dist'),
+    path: path.resolve(__dirname, './dist'),
     filename: '[name].js',
     libraryTarget: 'commonjs2'
   },
@@ -96,7 +96,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.jsx', '.es6'],
-    modules: [path.resolve(__dirname, '../../node_modules')]
+    modules: [path.resolve(__dirname, './node_modules')]
   },
 
   plugins: [
