@@ -8,7 +8,6 @@ const mocha = require('gulp-mocha');
 const istanbul = require('gulp-istanbul');
 const nsp = require('gulp-nsp');
 const plumber = require('gulp-plumber');
-const coveralls = require('gulp-coveralls');
 
 gulp.task('eslint', function() {
   return gulp.src('generators/**/*.js')
@@ -16,7 +15,7 @@ gulp.task('eslint', function() {
       presets: ['env']
     }))
     .pipe(eslint({
-      useEslintrc: false
+      useEslintrc: true
     }))
     .pipe(eslint.format())
     .pipe(eslint.failAfterError());

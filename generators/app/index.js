@@ -58,6 +58,7 @@ function generator() {
       mkdirp(this.destinationRoot() + '/' + 'dist');
       mkdirp(this.destinationRoot() + '/' + 'examples');
       mkdirp(this.destinationRoot() + '/' + 'src');
+      mkdirp(this.destinationRoot() + '/' + 'libs');
       mkdirp(this.destinationRoot() + '/' + 'tasks');
 
       // create src sub folders
@@ -92,12 +93,16 @@ function generator() {
       this.fs.copy(source + '/src/__tests__/index.test.js', destination + '/src/__tests__/index.test.js');
       this.fs.copy(source + '/src/__tests__/__snapshots__/index.test.js.snap', destination + '/src/__tests__/__snapshots__/index.test.js.snap');
 
+      // Copy libs folder
+      this.fs.copy(source + '/libs/postCssPlugins.js', destination + '/libs/postCssPlugins.js');
+      this.fs.copy(source + '/libs/cssVariables.js', destination + '/libs/cssVariables.js');
+
       // Copy tasks folder
       // Config folder
       this.fs.copy(source + '/tasks/config/clean.js', destination + '/tasks/config/clean.js');
       this.fs.copy(source + '/tasks/config/coveralls.js', destination + '/tasks/config/coveralls.js');
       this.fs.copy(source + '/tasks/config/eslint.js', destination + '/tasks/config/eslint.js');
-      this.fs.copy(source + '/tasks/config/webpack.config.js', destination + '/tasks/config/webpack.config.js');
+      this.fs.copy(source + '/tasks/config/webpack.config.js', destination + '/webpack.config.js');
       this.fs.copy(source + '/tasks/config/webpack.js', destination + '/tasks/config/webpack.js');
       // register folder
       this.fs.copy(source + '/tasks/register/build.js', destination + '/tasks/register/build.js');

@@ -9,9 +9,10 @@
  *    https://github.com/webpack/grunt-webpack
  */
 
-  const webpack = require('webpack');
-  const path = require('path');
-  const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require('webpack');
+const path = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const postCssPlugins = require('../../libs/postCssPlugins');
 
 module.exports = function(grunt) {
 
@@ -106,24 +107,7 @@ module.exports = function(grunt) {
       {
         loader: 'postcss-loader',
         options: {
-          plugins: () => [
-            require('postcss-nested')(),
-            require('postcss-simple-vars')({
-              /**
-               * Default variables. Should be overridden in mail build system
-               * @type {Object}
-               */
-              variables: {
-                'primary-color': '#38b889',
-                'opacity-disabled': '0.58',
-                'base-grid-size': '4px'
-              }
-            }),
-            require('postcss-color-hex-alpha')(),
-            require('postcss-color-function')(),
-            require('postcss-calc')(),
-            require('autoprefixer')()
-          ]
+          plugins: () => postCssPlugins()
         }
       }
     ]

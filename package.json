@@ -14,7 +14,7 @@
   "scripts": {
     "prepare": "gulp prepublish",
     "test": "gulp",
-    "travis": "npm i trevor -g && trevor"
+    "travis": "npm i trevor && trevor"
   },
   "author": {
     "name": "Sepand Assadi",
@@ -25,7 +25,11 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "react boilerplate webapck redux router",
+    "react",
+    "webapck",
+    "redux",
+    "router",
+    "boilerplate",
     "yeoman-generator"
   ],
   "dependencies": {

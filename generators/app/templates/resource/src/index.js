@@ -1,8 +1,8 @@
+
+
 // import React from 'react';
 // import PropTypes from 'prop-types';
 // import Immutable from 'immutable'; // uncommment / remove if needed
-// import Promise from 'bluebird'; // uncommment / remove if needed
-// import superagent from 'superagent'; // uncommment / remove if needed
 
 // export default class Index extends React.Component {
 //   constructor(props) {
@@ -12,15 +12,15 @@
 //     };
 //   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   this.setState({
-  //     sample: nextProps.sample
-  //   });
-  // }
+//   componentWillReceiveProps(nextProps) {
+//     this.setState({
+//       sample: nextProps.sample
+//     });
+//   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   // Implement this to your use
-  // }
+//   shouldComponentUpdate(nextProps, nextState) {
+//     // Implement this to your use
+//   }
 
 //   render() {
 //     return (
