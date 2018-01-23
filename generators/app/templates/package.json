@@ -43,10 +43,7 @@
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "ship-components-icon": "^0.1.2",
-    "ship-components-outsideclick": "^0.2.0",
-    "ship-components-utility": "^1.2.1"
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
