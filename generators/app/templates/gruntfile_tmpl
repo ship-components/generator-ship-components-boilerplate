@@ -46,7 +46,7 @@ module.exports = function(grunt) {
      *
      * @type    {RegExp}
      */
-    var jsFileTest = /^\w+\.js$/i;
+    var jsFileTest = /^\w+\-?\w+?\.js$/i;
 
     // Cycle through each item in the directory
     list.forEach(function(module) {
