@@ -35,9 +35,9 @@
   "author": "Sepand Assadi <sepand.assadi@sony.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ship-components/ship-components-tag-input/issues"
+    "url": "https://github.com/ship-components/generator-ship-components-boilerplate/issues"
   },
-  "homepage": "https://github.com/ship-components/ship-components-tag-input#readme",
+  "homepage": "https://github.com/ship-components/generator-ship-components-boilerplate#readme",
   "dependencies": {
     "babel-runtime": "^6.23.0",
     "classnames": "^2.2.5",
