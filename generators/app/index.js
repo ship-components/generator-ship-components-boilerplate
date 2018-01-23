@@ -27,7 +27,7 @@ function generator() {
         type: 'input',
         name: 'author',
         message: 'Pleace input author name:',
-        default: 'Sepand Assadi <sepand.assadi@sony.com>'
+        default: ''
       }];
       return this.prompt(prompts).then(function(props) {
         this.props = props;
@@ -63,7 +63,6 @@ function generator() {
 
       // create src sub folders
       mkdirp(this.destinationRoot() + '/' + 'src/__tests__');
-      mkdirp(this.destinationRoot() + '/' + 'src/__tests__/__snapshots__');
 
       // create tasks folders
       mkdirp(this.destinationRoot() + '/' + 'tasks');
@@ -91,7 +90,6 @@ function generator() {
       this.fs.copy(source + '/src/index.css', destination + '/src/index.css');
       this.fs.copy(source + '/src/index.js', destination + '/src/index.js');
       this.fs.copy(source + '/src/__tests__/index.test.js', destination + '/src/__tests__/index.test.js');
-      this.fs.copy(source + '/src/__tests__/__snapshots__/index.test.js.snap', destination + '/src/__tests__/__snapshots__/index.test.js.snap');
 
       // Copy libs folder
       this.fs.copy(source + '/libs/postCssPlugins.js', destination + '/libs/postCssPlugins.js');
