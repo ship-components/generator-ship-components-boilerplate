@@ -1,0 +1,6 @@
+{
+  "extends": "ship-components-base",
+  "env": {
+    "jest": true
+  }
+}
