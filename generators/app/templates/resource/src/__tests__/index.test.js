@@ -12,7 +12,7 @@
 // import Index from '../index';
 
 // Creates a shallow copy
-// function initializeShallowTagInputComponent() {
+// function initializeShallowAppComponent() {
 //   return shallow(
 //     <Index
 //       // Pass props here
@@ -21,7 +21,7 @@
 // }
 
 // Creates a mounted copy
-// function initializeMountTagInputComponent() {
+// function initializeMountAppComponent() {
 //   return mount(
 //     <Index
 //       // Pass props here
@@ -42,14 +42,14 @@
 
   // describe('Index Rendering', () => {
   //   it('should render correctly', () => {
-  //     const tree = initializeShallowTagInputComponent();
+  //     const tree = initializeShallowAppComponent();
   //     expect(shallowToJson(tree)).toMatchSnapshot();
   //   });
   // });
 
   // describe('componentWillReceiveProps Function', () => {
   //   it('displays a modified state upon changing props', () => {
-  //     const wrapper = initializeMountTagInputComponent();
+  //     const wrapper = initializeMountAppComponent();
   //     const opts = ['1', '2', '3'];
 
   //     expect(wrapper.state().data).toEqual([]);
@@ -66,7 +66,7 @@
   //   it('should call parent onChange function when add items', () => {
   //     const doneChangeFn = jest.fn();
   //     const wrapper = mount(
-  //       <TagInput
+  //       <App
   //         value={DATA_LIST}
   //         onChange={doneChangeFn}
   //       />
@@ -77,7 +77,7 @@
   //   });
 
   //   it('should add the passed value to array of data', () => {
-  //     const wrapper = initializeMountTagInputComponent();
+  //     const wrapper = initializeMountAppComponent();
 
   //     wrapper.node.handleSelectItem(SAMPLE_DATA);
   //     expect(DATA_LIST.toJS()[0]).toEqual(SAMPLE_DATA);
@@ -88,7 +88,7 @@
   //   it('should call parent onChange function when remove items', () => {
   //     const doneChangeFn = jest.fn();
   //     const wrapper = mount(
-  //       <TagInput
+  //       <App
   //         value={DATA_LIST}
   //         onChange={doneChangeFn}
   //       />
@@ -99,7 +99,7 @@
   //   });
 
   //   it('should remove the passed value from array of data', () => {
-  //     const wrapper = initializeMountTagInputComponent();
+  //     const wrapper = initializeMountAppComponent();
 
   //     // Add Extra item to the list
   //     wrapper.node.handleSelectItem({ id: 1, title: 'Sample Test 2' });

@@ -6,7 +6,7 @@ const postCssPlugins = require('./libs/postCssPlugins');
 module.exports = {
   // Where to start
   entry: {
-    TagInput: path.resolve(__dirname, './src/index.js')
+    App: path.resolve(__dirname, './src/index.js')
   },
 
   // Where to output
