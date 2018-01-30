@@ -30,7 +30,6 @@ module.exports = {
       {
         test: /\.(jsx?|es6)$/,
         enforce: 'pre',
-        exclude: /(node_modules|dist)/,
         include: /src\/.*/,
         use: 'eslint-loader'
       },
