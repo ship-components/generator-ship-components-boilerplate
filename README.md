@@ -1,5 +1,7 @@
 # generator-ship-components-boilerplate
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/ship-components/generator-ship-components-boilerplate.svg)](https://greenkeeper.io/)
+
 Simple React Project Starterkit for the SHIP team
 
 [![npm](https://img.shields.io/npm/v/generator-ship-components-boilerplate.svg)](https://www.npmjs.com/package/generator-ship-components-boilerplate)
