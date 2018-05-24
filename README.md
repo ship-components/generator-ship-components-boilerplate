@@ -26,6 +26,10 @@ yo ship-components-boilerplate
 
  * Feel free to [learn more about Yeoman](http://yeoman.io/).
 
+## History
+* 0.1.1 - Adds the dist folder to .gitignore template.
+* 0.1.0 - Initial version.
+
 ## License
 The MIT License (MIT)
 
