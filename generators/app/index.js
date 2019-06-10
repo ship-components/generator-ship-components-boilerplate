@@ -1,14 +1,17 @@
 function generator() {
   'use strict';
 
-  const yeoman = require('yeoman-generator');
+  const Generator = require('yeoman-generator');
   const chalk = require('chalk');
   const yosay = require('yosay');
   const path = require('path');
   const mkdirp = require('mkdirp');
 
-  module.exports = yeoman.extend({
-    prompting: function() {
+  module.exports = class extends Generator {
+    constructor(args, opts) {
+      super(args, opts);
+    }
+    prompting() {
       this.log(yosay('Welcome to the amazing ' + chalk.red('generator-ship-components-boilerplate') + ' generator!'));
 
       // Asking users for inputs
@@ -32,15 +35,17 @@ function generator() {
       return this.prompt(prompts).then(function(props) {
         this.props = props;
       }.bind(this));
-    },
-    defaults: function() {
+    }
+
+    defaults() {
       if(path.basename(this.destinationPath()) !== this.props.projectName) {
         this.log('Your generator must be inside a folder named ' + this.props.projectName + '\n' + 'I\'ll automatically create this folder.');
         mkdirp(this.props.projectName);
         this.destinationRoot(this.destinationPath(this.props.projectName));
       }
-    },
-    writing: function() {
+    }
+
+    writing() {
       // package
       var pkg = this.fs.readJSON(this.templatePath('package.json'), {});
       pkg.name = this.props.projectName;
@@ -108,11 +113,11 @@ function generator() {
       this.fs.copy(source + '/tasks/register/default.js', destination + '/tasks/register/default.js');
       this.fs.copy(source + '/tasks/register/lint.js', destination + '/tasks/register/lint.js');
       this.fs.copy(source + '/tasks/register/server.js', destination + '/tasks/register/server.js');
-    },
-    install: function() {
+    }
+    install() {
       process.exit();
     }
-  });
+  };
 }
 
 generator();

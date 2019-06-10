@@ -1,14 +1,17 @@
 'use strict';
-var yeoman = require('yeoman-generator');
+var Generator = require('yeoman-generator');
 
-var ComponentGenerator = yeoman.generators.NamedBase.extend({
-  initializing: function() {
+var ComponentGenerator = class extends Generator {
+  constructor(args, opts) {
+    super(args, opts);
+  }
+  initializing() {
     this.log('Component Name -->' + this.name + '.');
-  },
+  }
 
-  writing: function() {
+  writing() {
     this.template('component_tmpl', 'src/components/'+ this.name + '.jsx');
   }
-});
+};
 
 module.exports = ComponentGenerator;
