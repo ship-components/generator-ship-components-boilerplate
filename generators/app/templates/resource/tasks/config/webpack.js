@@ -13,6 +13,7 @@ const webpack = require('webpack');
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const postCssPlugins = require('../../libs/postCssPlugins');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 module.exports = function(grunt) {
 
@@ -47,8 +48,13 @@ module.exports = function(grunt) {
           filename: '[name].min.css',
           disable: false,
           allChunks: true
-        }),
-      ]
+        })
+      ],
+      optimization: {
+        minimizer: [
+          new UglifyJsPlugin()
+        ]
+      }
     }
   });
 
