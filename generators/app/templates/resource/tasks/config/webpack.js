@@ -48,7 +48,6 @@ module.exports = function(grunt) {
           disable: false,
           allChunks: true
         }),
-        new webpack.optimize.UglifyJsPlugin()
       ]
     }
   });
